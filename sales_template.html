@@ -102,6 +102,22 @@
                     >Preguntas frecuentes</a
                   >
                 </li>
+                <li>
+                  <a
+                    data-modal-target="return_modal"
+                    data-modal-toggle="return_modal"
+                    class="cursor-pointer block py-2 px-3 text-gray-800 dark:text-white"
+                    >Políticas de devolución</a
+                  >
+                </li>
+                <li>
+                  <a
+                    data-modal-target="t&c_modal"
+                    data-modal-toggle="t&c_modal"
+                    class="cursor-pointer block py-2 px-3 text-gray-800 dark:text-white"
+                    >Términos y condiciones</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -334,6 +350,18 @@
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <!-- verify places of delivery desktop -->
+                <div class="sm:hidden lg:block">
+                  <p
+                    id="verify_place_delivery_lg"
+                    data-modal-target="places_modal"
+                    data-modal-toggle="places_modal"
+                    class="text-xs underline cursor-pointer text-gray-800 dark:text-gray-800"
+                  >
+                    Haz click aquí para verificar las zonas de entrega
+                  </p>
                 </div>
 
                 <!-- button to order now -->
@@ -1084,6 +1112,16 @@
                   </div>
                 </div>
 
+                <!-- verify places of delivery mobile -->
+                <span
+                  id="verify_place_delivery"
+                  data-modal-target="places_modal"
+                  data-modal-toggle="places_modal"
+                  class="text-xs underline cursor-pointer text-gray-600 dark:text-gray-400"
+                >
+                  Haz click aquí para verificar las zonas de entrega
+                </span>
+
                 <!-- button to order now -->
                 <div>
                   <a
@@ -1114,6 +1152,182 @@
       </div>
 
       <footer class="bg-white rounded-lg shadow mx-4 mb-24 dark:bg-gray-800">
+        <!-- places modal -->
+        <div
+          id="places_modal"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        >
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <p class="text-xl font-bold text-gray-700">
+                  Zonas de entrega en Maracay, Valencia y Caracas
+                </p>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="places_modal"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div class="p-4 md:p-5 space-y-4">
+                <!-- Important note -->
+                <p class="text-sm font-normal text-gray-600 dark:text-gray-400">
+                  <b>DATO:</b> El delivery normalmente entrega en puntos
+                  referenciales de las zonas mencionadas, como plazas, centros
+                  comerciales, entre otros. Si tu ubicación al momento de la
+                  entrega no esta muy alejada de estos puntos de referencia (5 o
+                  hasta 10 minutos), el delivery te puede entregar en tu
+                  ubicación del momento.
+                </p>
+                <!-- Maracay -->
+                <div class="space-y-2">
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Zonas de entregas en Maracay:</b>
+                  </p>
+                  <ul
+                    class="text-sm pl-2 font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <li>- San jacinto</li>
+                    <li>- Las Delicias</li>
+                    <li>- El Limón</li>
+                    <li>- Cagua</li>
+                    <li>- Turmero</li>
+                    <li>- La Morita</li>
+                    <li>- Vía principal de Santa Rita</li>
+                    <li>- El Centro</li>
+                    <li>- Entrada de Campo Alegre</li>
+                    <li>- Palo Negro</li>
+                    <li>- La Encrucijada</li>
+                    <li>
+                      - La Victoria (solamente los días Lunes durante la manana
+                      y parte de mediodía)
+                    </li>
+                  </ul>
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Sobre las entregas en Maracay:</b> De Martes a Sábados el
+                    delivery hace entregas entre las 8:30 am y las 5:30 pm. Los
+                    días Lunes despues de las 3:00 pm.
+                  </p>
+                </div>
+
+                <!-- Valencia -->
+                <div class="space-y-2">
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Zonas de entregas en Valencia:</b>
+                  </p>
+                  <ul
+                    class="text-sm pl-2 font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <li>- San Diego</li>
+                    <li>- Naguanagua</li>
+                    <li>- El Prebo</li>
+                    <li>- La Viña</li>
+                    <li>- Centro</li>
+                    <li>- La Isabelica</li>
+                    <li>- Santa Rosa</li>
+                    <li>- Los Caobos</li>
+                    <li>- Plaza de Toros</li>
+                    <li>- Flor Amarillo (Hasta el C.C Alboral)</li>
+                    <li>- Los Guayos</li>
+                    <li>- Guacara</li>
+                    <li>- San Joaquin</li>
+                    <li>- Mariara</li>
+                  </ul>
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Sobre las entregas en Valencia:</b> El delivery entrega
+                    en Valencia <b>solamente los días Viernes</b> desde las 8:30
+                    am hasta las 4:00 pm. Si no puedes recibir los días viernes,
+                    te podemos enviar por MRW, Zoom o Tealca a tu oficina más
+                    cercana.
+                  </p>
+                </div>
+                <!-- Caracas -->
+                <div class="space-y-2">
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Zonas de entregas en Caracas:</b>
+                  </p>
+                  <ul
+                    class="text-sm pl-2 font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <li>- Catia (hasta propatria)</li>
+                    <li>- La Yaguara</li>
+                    <li>- Sabana Grande</li>
+                    <li>- La Candelaria</li>
+                    <li>- Fuerte Tiuna (Hasta la alcabala 3)</li>
+                    <li>- Las Mercedes</li>
+                    <li>- Chacao</li>
+                    <li>- Chacaito</li>
+                    <li>
+                      - Petare (Hasta el Lomito, Palos Verdes y la Redoma De
+                      Petare)
+                    </li>
+                    <li>- Boleita</li>
+                    <li>- El Cementerio</li>
+                    <li>- San Bernardino</li>
+                    <li>- Prados del Este</li>
+                    <li>- Santa Fe</li>
+                    <li>- La Trinidad</li>
+                    <li>- Montalban</li>
+                    <li>- Antimano</li>
+                    <li>- San Martin</li>
+                  </ul>
+                  <p
+                    class="text-sm font-normal text-gray-600 dark:text-gray-400"
+                  >
+                    <b>Sobre las entregas en Caracas:</b> El delivery entrega en
+                    Caracas de Lunes a Viernes desde las 8:30 am hasta las 5:00
+                    pm.
+                  </p>
+                </div>
+                <p class="text-sm font-normal text-gray-600 dark:text-gray-400">
+                  Si tu zona no se encuentra en algunos de los sitios
+                  mecionados, pregunta por
+                  <a
+                    href="https://wa.link/yd8221"
+                    target="_blank"
+                    class="underline"
+                    >Whatsapp</a
+                  >
+                  si el delivery puede llegar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Return modal -->
         <div
           id="return_modal"

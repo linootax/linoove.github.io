@@ -40,10 +40,11 @@ national_shipping_cb.addEventListener('change', () => {
 })
 national_shipping_banner.addEventListener('change', () => {
     let isChecked = national_shipping_banner.checked
-
+    let hide_delivery_msg = document.getElementById('verify_place_delivery')
     if (isChecked) {
         delivery_personal.style.display = 'none'
         national_shipping.style.display = 'block'
+        hide_delivery_msg.style.display = 'none'
     }
 })
 delivery_personal_cb.addEventListener('change', () => {
@@ -52,14 +53,17 @@ delivery_personal_cb.addEventListener('change', () => {
     if (isChecked) {
         delivery_personal.style.display = 'block'
         national_shipping.style.display = 'none'
+
     }
 })
 delivery_personal_banner.addEventListener('change', () => {
     let isChecked = delivery_personal_banner.checked
+    let unhide_delivery_msg = document.getElementById('verify_place_delivery')
 
     if (isChecked) {
         delivery_personal.style.display = 'block'
         national_shipping.style.display = 'none'
+        unhide_delivery_msg.style.display = 'block'
     }
 })
 // 
