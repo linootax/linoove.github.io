@@ -48,18 +48,22 @@ delivery_personal_cb.addEventListener('change', () => {
 // 
 
 // set 1 month to place an order
-function setDatetimeLocalMinMax(inputElement) {
-    // Get the current date and time
-    const currentDateTime = new Date();
-
-    // Set the minimum date to the current date and time
-    const minDateTime = currentDateTime.toISOString().slice(0, 16);
-    inputElement.min = minDateTime;
+function limitDateInput() {
+    // Get the current date
+    const today = new Date();
 
     // Calculate the maximum date (1 month from now)
-    const maxDateTime = new Date(currentDateTime.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 16);
-    inputElement.max = maxDateTime;
+    const maxDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+
+    // Get all date input elements on the page
+    const input = document.getElementById('shipping_date');
+
+    input.max = maxDate.toISOString().split('T')[0];
+    input.min = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split("T")[0];
+
 }
+
+limitDateInput()
 
 const date_input = document.getElementById("shipping_date")
 setDatetimeLocalMinMax(date_input)
