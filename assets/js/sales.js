@@ -25,11 +25,21 @@ delivery_msg.innerHTML = `Mañana hay entregas en Maracay entre las 8:30 am y la
 //check which shipping method the user wants and display the correct form
 const national_shipping_cb = document.getElementById('national_shipping')
 const delivery_personal_cb = document.getElementById('delivery_personal')
+const national_shipping_banner = document.getElementById('national_shipping_bottom')
+const delivery_personal_banner = document.getElementById('delivery_personal_bottom')
 const national_shipping = document.getElementById('form_national')
 const delivery_personal = document.getElementById('form_delivery')
 
 national_shipping_cb.addEventListener('change', () => {
     let isChecked = national_shipping_cb.checked
+
+    if (isChecked) {
+        delivery_personal.style.display = 'none'
+        national_shipping.style.display = 'block'
+    }
+})
+national_shipping_banner.addEventListener('change', () => {
+    let isChecked = national_shipping_banner.checked
 
     if (isChecked) {
         delivery_personal.style.display = 'none'
@@ -43,7 +53,14 @@ delivery_personal_cb.addEventListener('change', () => {
         delivery_personal.style.display = 'block'
         national_shipping.style.display = 'none'
     }
+})
+delivery_personal_banner.addEventListener('change', () => {
+    let isChecked = delivery_personal_banner.checked
 
+    if (isChecked) {
+        delivery_personal.style.display = 'block'
+        national_shipping.style.display = 'none'
+    }
 })
 // 
 
@@ -64,9 +81,6 @@ function limitDateInput() {
 }
 
 limitDateInput()
-
-const date_input = document.getElementById("shipping_date")
-setDatetimeLocalMinMax(date_input)
 // 
 
 // send order
