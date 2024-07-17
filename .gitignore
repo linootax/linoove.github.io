@@ -3,3 +3,7 @@ components.html
 content.txt
 products.json
 links.txt
+pages.txt
+product_documents
+gen_product_page.sh
+sales_template.html

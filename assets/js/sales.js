@@ -17,9 +17,66 @@ function getNextFriday() {
     });
 }
 const valencia_del_date = getNextFriday()
-const delivery_msg = document.getElementById("delivery-msg");
+const delivery_msg_element = document.getElementById("delivery-msg");
 
-delivery_msg.innerHTML = `Mañana hay entregas en Maracay entre las 8:30 am y las 5:30 pm. En Valencia el dia ${valencia_del_date} entre las 9:00 am y 3:00 pm.`
+const available_ccs = delivery_msg_element.getAttribute('ccs');
+const available_mcy = delivery_msg_element.getAttribute('mcy');
+const available_val = delivery_msg_element.getAttribute('val');
+
+let delivery_msg = ''
+
+function isWorkingHours() {
+    const currentDate = new Date();
+    const currentDay = currentDate.getDay();
+    const currentHour = currentDate.getHours();
+    const currentMinute = currentDate.getMinutes();
+
+    const isWeekday = currentDay >= 1 && currentDay <= 5;
+
+    const is830AMto530PM = (currentHour > 8 || (currentHour === 8 && currentMinute >= 30)) && currentHour < 17;
+
+    return { isWeekday, is830AMto530PM };
+}
+
+const { isWeekday, is830AMto530PM } = isWorkingHours()
+
+
+if (available_ccs === "true") {
+
+
+
+    if (isWeekday && is830AMto530PM)
+        delivery_msg += 'El dia de hoy hay entregas en Caracas entre las 8:30 am y 5:30 pm. '
+
+
+    if (isWeekday && !is830AMto530PM)
+        delivery_msg += 'Entregas en Caracas a partir de las 8:30 am. '
+
+    if (!isWeekday)
+        delivery_msg += 'Entregas en Caracas a partir del Lunes. '
+
+
+}
+
+if (available_mcy === "true") {
+
+    if (isWeekday && is830AMto530PM)
+        delivery_msg += 'El dia de hoy hay entregas en Maracay entre las 8:30 am y 5:30 pm. '
+
+    if (isWeekday && !is830AMto530PM)
+        delivery_msg += 'Entregas en Maracay a partir de las 8:30 am. '
+
+    if (!isWeekday)
+        delivery_msg += 'Entregas en Maracay a partir del Lunes. '
+
+}
+if (available_val === "true") {
+
+    delivery_msg += `Entregas en Valencia el dia ${valencia_del_date} entre las 9:00 am y 3:00 pm.`
+
+}
+
+delivery_msg_element.innerHTML = delivery_msg
 // end delivery message
 
 //check which shipping method the user wants and display the correct form
@@ -139,7 +196,7 @@ function sendOrderMessage(type) {
 
         delivery_form.href = base_url
         delivery_form.click()
-        delivery_personal.reset()
+
     }
 
     if (type === 'shipping') {
@@ -177,7 +234,6 @@ function sendOrderMessage(type) {
         shipping_form.href = base_url
         shipping_form.click()
 
-        national_shipping.reset()
     }
 
     return
