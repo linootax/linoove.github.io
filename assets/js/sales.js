@@ -173,11 +173,11 @@ function sendOrderMessage(type) {
         }
 
         const shipping_date_formatted = formatDateTimeLocal(shipping_date)
-        const order_message = `🔵 Identificador del pedido: ${order_id}\n\n
-    🏠 Dirección de entrega: ${address}, ${city}\n\n
-    📆 Entrega solicitada para: ${shipping_date_formatted} a nombre de ${name}\n\n
-    📞 Datos de contacto: ${phone_number}\n\n
-    🔵 ${quantity} unidad(es): ${product}`
+        const order_message = `%0A%0D%0A%3D%3D%3D%3D%3D%3D 🔵 Identificador del pedido: *${order_id}* %0A%0D%0A
+    %3D%3D%3D%3D%3D%3D 🏠 Dirección de entrega: ${address}, ${city} 0D%0A%0D%0A
+    %3D%3D%3D%3D%3D%3D 📆 Entrega solicitada para: ${shipping_date_formatted} a nombre de ${name} %0A%0D%0A
+    %3D%3D%3D%3D%3D%3D 📞 Datos de contacto: ${phone_number} %0A%0D%0A
+    %3D%3D%3D%3D%3D%3D 🔵 ${quantity} unidad(es): ${product} %3D%3D%3D%3D%3D%3D`
         base_url += `${order_message}&type=phone_number`
 
         const form_cache = {
@@ -223,13 +223,13 @@ function sendOrderMessage(type) {
 
         localStorage.setItem('shipping', JSON.stringify(form_cache))
 
-        const order_message = `🔵 Identificador del pedido: ${order_id}\n\n
-    🏠 Dirección de la oficina: ${address}, ${city}\n\n
-    📆 Datos del recipiente:\n
+        const order_message = `- 🔵 Identificador del pedido: ${order_id}\n\n
+    - 🏠 Dirección de la oficina: ${address}, ${city}\n\n
+    - 📆 Datos del recipiente:\n
     - Nombre: ${name}\n
-    -C.I: ${ci}\n
+    - C.I: ${ci}\n
     - Número de teléfono: ${phone_number}\n\n
-    🔵 ${quantity} unidad(es): ${product}`
+    - 🔵 ${quantity} unidad(es): ${product}`
         base_url += `${order_message}&type=phone_number`
         shipping_form.href = base_url
         shipping_form.click()
